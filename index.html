@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rajshri's Creative Homepage</title>
+
+  <!-- EXTRA CREDIT: META TAGS FOR LINK PREVIEWS -->
+  <meta property="og:title" content="Rajshri's Creative Homepage" />
+  <meta property="og:description" content="A fun and interactive site showcasing my work and interests." />
+  <meta property="og:image" content="https://YourGHusername.github.io/YourRepoName/Rajshri%20Jain%20Retouched.jpg" />
+  <meta property="og:url" content="https://YourGHusername.github.io/YourRepoName/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- EXTRA CREDIT: GOATCOUNTER ANALYTICS -->
+  <script data-goatcounter="https://rajshri98-hw.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
+
+  <style>
+    /* Body reset and general styling */
+    body {
+      margin: 0;
+      font-family: "Arial", sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      transition: background-color 0.5s ease;
+    }
+
+    /* Header styling */
+    header {
+      background: linear-gradient(120deg, #2196f3, #64b5f6);
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Bio section */
+    .bio-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .bio-text {
+      flex: 1 1 300px;
+    }
+    .bio-text p {
+      margin: 0.5rem 0;
+      line-height: 1.5;
+    }
+
+    /* Image container with hover effect */
+    .bio-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .bio-image img {
+      max-width: 250px;
+      border-radius: 0;
+      border: 4px dashed #2196f3;
+      transition: filter 0.5s;
+    }
+    .bio-image img:hover {
+      filter: hue-rotate(180deg);
+    }
+
+    /* Section titles */
+    .experience-section h2, .education-section h2 {
+      margin-bottom: 0.5rem;
+      color: #1976d2;
+    }
+
+    /* Work Experience Section with Grid */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 600px) {
+      .experience-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .exp-item {
+      background-color: #e3f2fd;
+      padding: 1rem;
+      border-left: 4px solid #2196f3;
+      border-radius: 4px;
+    }
+    .exp-item h3 {
+      margin-top: 0;
+      color: #0d47a1;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+    .exp-dates {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #333;
+    }
+    .exp-item ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.5rem;
+    }
+    .exp-item li {
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Details Section (Volunteering, etc.) */
+    details {
+      background-color: #e8f5e9;
+      border-left: 4px solid #388e3c;
+      padding: 1rem;
+      margin: 2rem 0;
+      cursor: pointer;
+    }
+    summary {
+      font-weight: bold;
+      color: #2e7d32;
+      outline: none;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Banner */
+    .banner-shape {
+      background-color: #64b5f6;
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+      height: 100px;
+      margin-bottom: 2rem;
+    }
+
+    /* Fun & Interactive Section */
+    .fun-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    @media (min-width: 800px) {
+      .fun-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .fun-item {
+      background-color: #e3f2fd;
+      border: 2px solid #2196f3;
+      border-radius: 4px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .fun-item button {
+      background-color: #2196f3;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 0.5rem;
+    }
+    .fun-item button:hover {
+      background-color: #1976d2;
+    }
+    .quote-display {
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background-color: #2196f3;
+      color: #fff;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    /* EXTRA CREDIT: Mouse Coordinates Box */
+    #mouse-coords {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      padding: 0.5rem;
+      z-index: 999;
+      font-size: 0.85rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- EXTRA CREDIT: Mouse Coordinates Display -->
+  <div id="mouse-coords">Move your mouse around!</div>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Hello, I’m Rajshri! <span style="font-size:1.5rem;">👋</span></h1>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- BIO & IMAGE SECTION -->
+    <section class="bio-section">
+      <div class="bio-text">
+        <h2>About Me</h2>
+        <p>
+          I’m a Product Manager at the intersection of design, business, and technology. Drawing on my background 
+          in architecture and computer science, I thrive on creating user-centric solutions, leveraging data-driven 
+          insights, and fostering cross-functional collaboration. I’ve tackled product challenges across diverse 
+          industries, from urban development to agriculture and finance, always focusing on real-world impact for users.
+        </p>
+        <p>
+          ✨ When I’m not exploring new tech, I love hiking, painting, trying out creative recipes, and discovering 
+          cozy coffee shops.
+        </p>
+      </div>
+      <div class="bio-image">
+        <img src="Rajshri Jain Retouched.jpg" alt="Rajshri's Photo" />
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="education-section">
+      <h2>Education</h2>
+      <div class="exp-item" style="margin-bottom: 1rem;">
+        <h3>MS Computing and Information Science, Cornell University</h3>
+        <p class="exp-dates">(Aug 2023 – May 2025)</p>
+        <ul>
+          <li>Merit Scholarship</li>
+          <li>Relevant Coursework: Product Management, GTM Strategies, Data Science, Machine Learning</li>
+        </ul>
+      </div>
+      <div class="exp-item">
+        <h3>Bachelor of Architecture, CEPT University</h3>
+        <p class="exp-dates">(Aug 2016 – May 2021)</p>
+        <ul>
+          <li>Six-month exchange program at École Nationale Supérieure D’architecture, Paris</li>
+          <li>Focused on Professional Practice, Building Systems, and Digital Technology</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE SECTION -->
+    <section class="experience-section">
+      <h2>Work Experience</h2>
+      <div class="experience-grid">
+        <!-- EXPERIENCE ITEM #1: Bloomberg -->
+        <div class="exp-item">
+          <h3>Student Product Consultant, Bloomberg</h3>
+          <p class="exp-dates">(Aug 2024 – Dec 2024)</p>
+          <ul>
+            <li>Developed and prototyped a navigation solution for the visually impaired in New York City as part of Cornell Tech’s Product Studio.</li>
+            <li>Conducted user research with 20+ visually impaired individuals, translating insights into features improving prototype usability by 40%.</li>
+            <li>Selected as one of the top 3 teams out of 100 to present at the Innovation Meets Impact Panel at Verizon Executive Education Centre.</li>
+          </ul>
+        </div>
+        <!-- EXPERIENCE ITEM #2: Pocketful -->
+        <div class="exp-item">
+          <h3>Founding Product Manager, Pocketful</h3>
+          <p class="exp-dates">(Apr 2023 – Aug 2024)</p>
+          <ul>
+            <li>Launched & scaled a 0→1 fintech product, driving 30% growth through data-backed user segmentation and GTM execution.</li>
+            <li>Optimized user experience by integrating plain-English order summaries, reducing decision complexity for traders.</li>
+            <li>Collaborated cross-functionally on monthly newsletters and targeted social media, driving 25% growth in readership and adoption.</li>
+          </ul>
+        </div>
+        <!-- EXPERIENCE ITEM #3: HCP Design -->
+        <div class="exp-item">
+          <h3>Consultant, HCP Design, Planning & Management</h3>
+          <p class="exp-dates">(Aug 2022 – Mar 2023)</p>
+          <ul>
+            <li>Managed infrastructure design for the Pune Smart City Project, optimizing system efficiency and delivering 50 outfall designs.</li>
+            <li>Analyzed sewage data with SQL, increasing planning accuracy by 40% and supporting strategic development and on-site challenges.</li>
+            <li>Supervised 3 interns and coordinated between engineers, designers, consultants, and liaised with clients to ensure project delivery.</li>
+          </ul>
+        </div>
+        <!-- EXPERIENCE ITEM #4: Kalindi Agro -->
+        <div class="exp-item">
+          <h3>Product Manager, Kalindi Agro</h3>
+          <p class="exp-dates">(Jul 2020 – Jul 2022)</p>
+          <ul>
+            <li>Managed full lifecycle of seed potato product line, leveraging data analysis and market insights to improve product efficiency by 15%.</li>
+            <li>Analyzed market trends and feedback, driving strategic enhancements that grew market share by 10%, optimizing performance.</li>
+            <li>Hosted informational sessions for agritech startups, offering insights on seed technology, best practices, and market positioning.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADDITIONAL PROJECTS & VOLUNTEERING -->
+    <details>
+      <summary>Additional Volunteering & Entrepreneurship</summary>
+      <p><strong>Consultant, Samarthyam (Government of India) (Jul 2020 – Jul 2022)</strong></p>
+      <ul>
+        <li>Led accessibility audits for 30 buildings and policy assessments, delivering recommendations for infrastructure compliance.</li>
+        <li>Analyzed accessibility gaps in primary schools, translating field research into structured design recommendations.</li>
+        <li>Managed cross-functional collaboration with people with disabilities to map barriers, analyze data, and translate insights into reports.</li>
+      </ul>
+      <p><strong>EcoSense, Co-Founder (Dec 2024 – Present)</strong></p>
+      <ul>
+        <li>AI-powered navigation tools for visually impaired individuals using spatial audio and echolocation.</li>
+        <li>Owning end-to-end product development, defining the MVP roadmap, feature set, and success metrics to align market needs.</li>
+        <li>Driving user research and stakeholder engagement and pitching the MVP to VCs, securing feedback to refine the go-to-market strategy.</li>
+      </ul>
+      <p><strong>Finsow, Co-Founder (Aug 2022 – Aug 2023)</strong></p>
+      <ul>
+        <li>Content-driven platform providing insights from startup founders to help early-stage entrepreneurs navigate business challenges.</li>
+        <li>Developed and executed a data-driven product roadmap, optimizing user experience and driving a 30% increase in engagement.</li>
+        <li>Conducted user research by interviewing startup founders, synthesizing insights into product content strategy and feature development.</li>
+      </ul>
+    </details>
+
+    <!-- DECORATIVE BANNER (EMPTY) -->
+    <section class="banner-shape"></section>
+
+    <!-- FUN & INTERACTIVE SECTION -->
+    <h2 style="text-align:center;">Fun & Interactive</h2>
+    <section class="fun-grid">
+      <!-- 1) Change Background -->
+      <div class="fun-item">
+        <h3>Change Background</h3>
+        <p>Click to change the page color!</p>
+        <button id="color-btn" class="button">Change Color</button>
+      </div>
+
+      <!-- 2) Random Cat Fact -->
+      <div class="fun-item">
+        <h3>Random Cat Fact</h3>
+        <p>Fetch a random fact:</p>
+        <button id="fact-btn" class="button">Get Fact</button>
+        <div id="fact-display" class="quote-display">Click the button to see a fun fact!</div>
+      </div>
+
+      <!-- 3) Fun Work Facts (Dialog) -->
+      <div class="fun-item">
+        <h3>Fun Work Facts</h3>
+        <p style="font-size:0.8rem; color:#555;">Click multiple times for different facts.</p>
+        <button id="open-dialog-btn" class="button">Show Fun Fact</button>
+        <dialog id="fun-dialog">
+          <h3>Fun Work Fact</h3>
+          <p id="fact-text"></p>
+          <button id="next-fact-btn" class="button">Next Fact</button>
+          <button id="close-dialog-btn" class="button">Got It!</button>
+        </dialog>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Rajshri Jain | Connect on 
+      <a href="https://www.linkedin.com/in/rajshrij" target="_blank" style="color: #fff;">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    // EXTRA CREDIT: Mouse Coordinates
+    document.addEventListener('mousemove', (e) => {
+      const coordsDiv = document.getElementById('mouse-coords');
+      if (coordsDiv) {
+        coordsDiv.textContent = `Mouse X: ${e.clientX}, Mouse Y: ${e.clientY}`;
+      }
+    });
+
+    // 1) Background Color Changer
+    const colorBtn = document.getElementById('color-btn');
+    if (colorBtn) {
+      colorBtn.addEventListener('click', () => {
+        const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+        document.body.style.backgroundColor = randomColor;
+      });
+    }
+
+    // 2) Random Cat Fact API
+    const factBtn = document.getElementById('fact-btn');
+    const factDisplay = document.getElementById('fact-display');
+    if (factBtn && factDisplay) {
+      factBtn.addEventListener('click', async () => {
+        try {
+          const response = await fetch('https://catfact.ninja/fact');
+          if (!response.ok) throw new Error('Network response was not ok');
+          const data = await response.json();
+          factDisplay.textContent = `${data.fact}`;
+        } catch (error) {
+          factDisplay.textContent = 'Failed to load a fact.';
+          console.error(error);
+        }
+      });
+    }
+
+    // 3) Fun Work Facts (Dialog)
+    const openDialogBtn = document.getElementById('open-dialog-btn');
+    const closeDialogBtn = document.getElementById('close-dialog-btn');
+    const nextFactBtn = document.getElementById('next-fact-btn');
+    const funDialog = document.getElementById('fun-dialog');
+    const factText = document.getElementById('fact-text');
+
+    const funFacts = [
+      "I lived in a remote village in India for a month to help construct a primary school.",
+      "I studied as an exchange student in Paris for six months, spoke broken French and had a lot of wine.",
+      "I conducted heritage walks in my hometown Delhi when I was in high school."
+    ];
+    let factIndex = 0;
+
+    if (openDialogBtn && funDialog && factText) {
+      openDialogBtn.addEventListener('click', () => {
+        factIndex = 0;
+        factText.textContent = funFacts[factIndex];
+        funDialog.showModal();
+      });
+    }
+    if (nextFactBtn && factText) {
+      nextFactBtn.addEventListener('click', () => {
+        factIndex = (factIndex + 1) % funFacts.length;
+        factText.textContent = funFacts[factIndex];
+      });
+    }
+    if (closeDialogBtn && funDialog) {
+      closeDialogBtn.addEventListener('click', () => {
+        funDialog.close();
+      });
+    }
+  </script>
+</body>
+</html>
